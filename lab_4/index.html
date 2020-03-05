@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Prof A's Demo Page</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="top">Prof A's Demo Page</div>
+        <button class="activate" onclick="clickMe()">
+          Click me to make a change
+        </button>
+        <div class="content">
+          <p>
+            Retro fam narwhal hoodie meggings viral bushwick yr chartreuse.
+            Chartreuse seitan banh mi selfies, woke ennui venmo craft beer. Air
+            plant tumeric retro DIY iPhone poutine. +1 gastropub chillwave,
+            cronut glossier pork belly tacos poke next level fanny pack vegan
+            jianbing lo-fi.
+          </p>
+        </div>
+        <div class="footer"></div>
+      </div>
+    </div>
+    <script>
+      function clickMe() {
+        const content = document.querySelector(".content");
+        content.innerHTML = "Hello world";     
+      }
+
+      var myName  = 'Tianyi Li'
+      var myHeader = document.querySelector(".top");
+      myHeader.innerHTML = myName + "'s Lab4";
+
+      var container_block = document.querySelector(".content");
+      var new_first_block = document.createElement('div');
+      new_first_block.className = "first";
+      new_first_block.innerHTML = "My name has " + myName.length +" characters";
+      container_block.appendChild(new_first_block);
+
+      var new_second_block = document.createElement('div');
+      new_second_block.className = "second";
+      new_second_block.innerHTML = "The third character in my name is" + myName.charAt(2).toUppercase();
+      container_block.appendChild(new_second_block);
+    </script>
+  </body>
+</html>
