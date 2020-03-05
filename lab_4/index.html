@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Prof A's Demo Page</title>
+    <title>Tianyi's Lab 4</title>
     <link rel="stylesheet" type="text/css" href="./style.css" />
   </head>
 
@@ -30,7 +30,7 @@
         content.innerHTML = "Hello world";     
       }
 
-      var myName  = 'Tianyi Lee'
+      var myName  = 'Tianyi Lii'
       var myHeader = document.querySelector(".top");
       myHeader.innerHTML = myName + "'s Lab4";
 
@@ -49,7 +49,8 @@
       
       var firstName = myName.substr(0,myName.indexOf(' '));
       var lastName = myName.substr(myName.indexOf(' ')+1); 
-      new_second_block.innerHTML += firstname;
+      var totalLength = firstName.length+lastName.length;
+      myHeader.innerHTML = myHeader.innerHTML.slice(0,totalLength+1) + ' ' + totalLength + myHeader.innerHTML.slice(totalLength+1);
 
     </script>
   </body>
