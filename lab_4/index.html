@@ -30,7 +30,7 @@
         content.innerHTML = "Hello world";     
       }
 
-      var myName  = 'Tianyi Li'
+      var myName  = 'Tianyi Lee'
       var myHeader = document.querySelector(".top");
       myHeader.innerHTML = myName + "'s Lab4";
 
@@ -45,9 +45,12 @@
       new_second_block.innerHTML = "The third character in my name is " + myName.charAt(2).toUpperCase();
       container_block.appendChild(new_second_block);
       
-      var new_char = "asb"
-      document.write("<br>");
-      document.write(new_char)
+      new_second_block.innerHTML += "<br>" + myName.substring(myName.length-3,myName.length);
+      
+      var firstName = myName.substr(0,myName.indexOf(' '));
+      var lastName = myName.substr(myName.indexOf(' ')+1); 
+      new_second_block.innerHTML += firstname;
+
     </script>
   </body>
 </html>
