@@ -276,17 +276,28 @@
     myList.className = "countries";
     container_block.appendChild(myList);
 
-    let myClick = document.querySelector(activate);
+    const myClick = document.querySelector(".activate");
     
     function selectCountry(countr) {
-      arr = [];
+      var arr = [];
       for(let i = 0; i < 25; i++){
         var country = countr[Math.floor(Math.random()* countr.length)];
-        arr.push(country)
+        
+        arr.push(country);
       }
+      return arr;
     }
-    
-    myClick.onclick = selectCountry(countries);
+ 
+    myClick.onclick = function() {
+      var coun= [];
+      var unselect = countries.slice()
+      selectCountry(countries).forEach(function(e){
+        coun.push("<li>"+e["code"].bold()+" "+e["name"]+"</li>");
+        unselect.splice(unselect.indexOf(e),1);
+      });
+      console.log("Unselect countries",unselect);
+      myList.innerHTML = coun.join('');
+    }
   </script>
 </body>
 
