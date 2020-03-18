@@ -19,17 +19,6 @@
     </div>
   </div>
   <script>
-    var myHeader = document.querySelector(".header");
-    myHeader.innerHTML = "Tianyi's List Of Countries";
-    
-    var container_block = document.querySelector(".content")
-    var myList = document.createElement('ol');
-    var li;
-    myList.className = "list";
-    container_block.appendChild(myList);
-
-    let myClick = document.querySelector(activate);
-    myClick.onclick = fucntion();
     /* N.B. - For your lab, use the variable "countries" now available on the window space */
     const countries = [
       { "name": "Afghanistan", "code": "AF" },
@@ -277,6 +266,27 @@
       { "name": "Zimbabwe", "code": "ZW" }
     ]
     console.log("List of countries in the world", countries);
+  
+    var myHeader = document.querySelector(".header");
+    myHeader.innerHTML = "Tianyi's List Of Countries";
+    
+    var container_block = document.querySelector(".content")
+    var myList = document.createElement('ol');
+    var li;
+    myList.className = "countries";
+    container_block.appendChild(myList);
+
+    let myClick = document.querySelector(activate);
+    
+    function selectCountry(countr) {
+      arr = [];
+      for(let i = 0; i < 25; i++){
+        var country = countr[Math.floor(Math.random()* countr.length)];
+        arr.push(country)
+      }
+    }
+    
+    myClick.onclick = selectCountry(countries);
   </script>
 </body>
 
