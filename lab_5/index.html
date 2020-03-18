@@ -272,7 +272,6 @@
     
     var container_block = document.querySelector(".content")
     var myList = document.createElement('ol');
-    var li;
     myList.className = "countries";
     container_block.appendChild(myList);
 
@@ -282,7 +281,6 @@
       var arr = [];
       for(let i = 0; i < 25; i++){
         var country = countr[Math.floor(Math.random()* countr.length)];
-        
         arr.push(country);
       }
       return arr;
@@ -296,7 +294,7 @@
         unselect.splice(unselect.indexOf(e),1);
       });
       console.log("Unselect countries",unselect);
-      myList.innerHTML = coun.join('');
+      myList.innerHTML = coun.sort().join('');
     }
   </script>
 </body>
