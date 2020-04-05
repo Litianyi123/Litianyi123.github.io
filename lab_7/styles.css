@@ -1,4 +1,13 @@
 /* Set document default styles for text */
+.leaflet-popup-tip,
+.leaflet-popup-content-wrapper {
+  background: #e93434;
+  color: #3b3dc7;
+  font-size:10px;
+  line-height:20px;
+  border-radius: 0px;
+}
+
 body {
   line-height: 1.6;
   font-size: 18px;
@@ -6,6 +15,13 @@ body {
   padding: 0 10px;
   background: #eee;
 }
+
+#mapid {   
+  width: 600px;
+  height: 400px;
+  position: relative;
+  outline: none; }
+
 
 h1,
 h2,
