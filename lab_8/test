@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Charts Lab</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="header">Frontend Libraries: Charts Lab</div>
+        <div class="content">
+          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+        </div>
+        <div class="footer">Let's eat out in the future!</div>
+      </div>
+    </div>
+    <script>
+      //I wanted to reference mainly the lecture, and some online searches for code use, to complete this
+      fetch(' https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json') 
+      .then(function(response) {
+        console.log("response information", response);
+        return response;
+      })
+      .then(function(data) {
+        return data.json();
+      })
+      .then(function(data) { 
+        console.log(data);
+        return data;
+      })
+        .then(function(data) {
+        let restaurants = data;
+        let res_type = {};
+        for (let i=0;i<restaurants.length;i++){
+          if (restaurants[i].category in res_type) {
+            res_type[restaurants[i].category] =res_type[restaurants[i].category]+1;
+          }
+          else {
+            res_type[restaurants[i].category] = 1;
+          }
+        }
+        console.log(res_type);
+        return res_type;
+      })
+        .then((data) => {
+          let reformate = Object.entries(data).map((m, i) => {
+            return {
+              label: m[0],
+              y: m[1],
+            };
+          });
+          return reformate;
+        })
+        .then((reformate) => {
+
+          let chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            title: {
+              text: "Let's Find Somewhere To Eat",
+            },
+            axisX: {
+              labelFontSize: 8,
+              margin: 10,
+              interval: 1
+            },
+            data: [
+              {
+                type: "bar",
+                dataPoints: reformate,
+              },
+            ],
+          });
+          chart.render();
+        });
+    </script> 
+  </body>
+</html>
